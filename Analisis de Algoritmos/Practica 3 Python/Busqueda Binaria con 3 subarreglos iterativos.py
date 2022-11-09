@@ -1,24 +1,23 @@
 import os
 import random
+Arreglo_auxiliar=[]
 Arreglo=[]
 A=[]
 B=[]
 C=[]
-Bandera=True
 n=30
 for i in range(n):
     dato=random.randint(0,n)
     Arreglo.append(dato)
 
 Arreglo.sort()
+Arreglo_auxiliar=Arreglo
 numero=int(input("Ingresar el numero a buscar:\n"))
 
-while Bandera==True:
+while True:
     tamaño=int(len(Arreglo)/3)
     print(Arreglo)
-    print(A)
-    print(B)
-    print(C)
+
     for i in range(tamaño):
         A.append(Arreglo[i])
         B.append(Arreglo[i+tamaño])
@@ -27,8 +26,8 @@ while Bandera==True:
     if numero<=A[len(A)-1]:
         if numero in A:
             if numero==A[len(A)-1]:
-                print("Su posicion esta en: {}\n".format(len(A)))
-                Bandera==False
+                print("Su posicion esta en: {}\n".format(Arreglo_auxiliar.index(numero+1)))
+                break
             else:
                 Arreglo=A
                 A=[]
@@ -37,13 +36,13 @@ while Bandera==True:
                 continue
         else:
             print("El numero no se encuentra en el arreglo")
-            Bandera==False
+            break
 
     if numero>=B[len(B)-1]:
         if numero in C:
             if numero==B[len(B)-1]:
-                print("Su posicion esta en: {}\n".format(len(A)+len(B)))
-                Bandera==False
+                print("Su posicion esta en: {}\n".format(Arreglo_auxiliar.index(numero+1)))
+                break
             else:
                 Arreglo=C
                 A=[]
@@ -52,7 +51,7 @@ while Bandera==True:
                 continue
         else:
             print("El numero no se encuentra en el arreglo")
-            Bandera==False
+            break
     if numero>A[len(A)-1] and numero<B[len(B)-1]:
         if numero in B:
             Arreglo=B
@@ -62,4 +61,4 @@ while Bandera==True:
             continue
         else:
             print("El numero no esta en el arreglo")
-            Bandera==False
+            break
