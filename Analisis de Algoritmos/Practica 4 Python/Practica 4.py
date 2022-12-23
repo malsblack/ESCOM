@@ -13,7 +13,7 @@ def divideyvenceras(matriz,tamaño):
         print(C)
         D= matriz[partir:tamaño,partir:tamaño]
         print(D)
-        divideyvenceras(A,int(len(A)))
+         divideyvenceras(A,int(len(A)))
 
 
     else:
