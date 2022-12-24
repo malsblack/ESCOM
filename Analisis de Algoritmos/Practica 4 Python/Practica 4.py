@@ -2,18 +2,33 @@ import cv2 #Para el procesamiento de la imagen
 import numpy as np #Para la creacion y manipulacion de matrices
 import pandas as pd #Para operaciones con matrices
 
+auxa=[]
+auxb=[]
+auxc=[]
+auxd=[]
+aux=[]
+primer=[]
+segundo=[]
+contador=0
+
+final=[]
+final=np.array(final)
 def divideyvenceras(matriz,tamaño):
+    global auxa
     if(tamaño!=2):
         partir=int(tamaño/2)
         A= matriz[0:partir,0:partir]
-        print(A)
+        print("Matriz A:\n",A)
         B= matriz[0:partir,partir:tamaño]
-        print(B)
+        print("Matriz B:\n",B)
         C= matriz[partir:tamaño,0:partir]
-        print(C)
+        print("Matriz C:\n",C)
         D= matriz[partir:tamaño,partir:tamaño]
-        print(D)
-         divideyvenceras(A,int(len(A)))
+        print("Matriz D:\n",D)
+        divideyvenceras(A,int(len(A)))
+        divideyvenceras(B,int(len(B)))
+        divideyvenceras(C,int(len(C)))
+        divideyvenceras(D,int(len(D)))
 
 
     else:
@@ -21,7 +36,17 @@ def divideyvenceras(matriz,tamaño):
         B=matriz[0:1,1:2]
         C=matriz[1:2,0:1]
         D=matriz[1:2,1:2]
-        print(A[0])
+        a=A[0]
+        b=B[0]
+        c=C[0]
+        d=D[0]
+        aux=[[b,d],[a,c]]
+        aux=np.array(aux).reshape(2,2)
+        auxa.append(aux)
+        print(auxa)
+
+
+
 
 
 
