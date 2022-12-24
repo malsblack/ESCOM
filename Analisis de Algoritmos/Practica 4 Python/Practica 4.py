@@ -18,13 +18,13 @@ def divideyvenceras(matriz,tamaño):
     if(tamaño!=2):
         partir=int(tamaño/2)
         A= matriz[0:partir,0:partir]
-        print("Matriz A:\n",A)
+        #print("Matriz A:\n",A)
         B= matriz[0:partir,partir:tamaño]
-        print("Matriz B:\n",B)
+        #print("Matriz B:\n",B)
         C= matriz[partir:tamaño,0:partir]
-        print("Matriz C:\n",C)
+        #print("Matriz C:\n",C)
         D= matriz[partir:tamaño,partir:tamaño]
-        print("Matriz D:\n",D)
+        #print("Matriz D:\n",D)
         divideyvenceras(A,int(len(A)))
         divideyvenceras(B,int(len(B)))
         divideyvenceras(C,int(len(C)))
@@ -43,7 +43,9 @@ def divideyvenceras(matriz,tamaño):
         aux=[[b,d],[a,c]]
         aux=np.array(aux).reshape(2,2)
         auxa.append(aux)
-        print(auxa)
+        
+
+    
 
 
 
@@ -71,15 +73,20 @@ def divideyvenceras(matriz,tamaño):
 
 
 
-#Imagen=cv2.imread('imagen.bmp') #Se carga la imagen
-#R=Imagen[:,:,0] #Se descompone la primer capa en Rojo
-#G=Imagen[:,:,1] #Se descompone la primer capa en Verde
-#B=Imagen[:,:,2] #Se descompone la primer capa en Azul
+Imagen=cv2.imread('imagen.bmp') #Se carga la imagen
+R=Imagen[:,:,0] #Se descompone la primer capa en Rojo
+G=Imagen[:,:,1] #Se descompone la primer capa en Verde
+B=Imagen[:,:,2] #Se descompone la primer capa en Azul
 auxa=[]
-#cv2.imshow('RGB',np.hstack([R,G,B])) #Se muestra la descomposicion de las image
-prueba=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
-prueba=np.array(prueba)
+cv2.imshow('RGB',np.hstack([R,G,B])) #Se muestra la descomposicion de las image
+#prueba=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+#prueba=np.array(prueba)
 
-divideyvenceras(prueba,int(len(prueba)))
+divideyvenceras(B,int(len(B)))
+a=np.array([auxa[0],auxa[2]])
+b=np.array([auxa[1],auxa[3]])
+c=np.array([a,b])
+print(np.array(auxa).reshape(256,256))
+
 #divideyvenceras(R,int(len(R)))
 #cv2.waitKey(0)
