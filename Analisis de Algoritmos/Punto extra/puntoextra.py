@@ -15,5 +15,8 @@ for i in range(n):
 
 grafo=nx.Graph() #Se crea el nodo
 
+for i in nodos:
+    grafo.add_node(i)
+
 for i in aristas:
-    print(i)
+    grafo.add_edge(i)
