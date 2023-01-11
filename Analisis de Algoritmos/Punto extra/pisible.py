@@ -1,3 +1,9 @@
+class grafoo:
+    def __init__(self,arista,n):
+        self.adjlist=[[] for _ in range(n)]
+        for (src, dest) in arista:
+            self.adjList[src].append(dest)
+            self.adjList[dest].append(src)
 def hamilton(graph, v, visited, path, n):
     if len(path) == n:
         print(path)
